@@ -225,7 +225,7 @@ export default observer(() => {
             { num < demos.length && <Link to={{ demo: num + 1 }}>Next</Link> }
           </Nav>
           <Desc dangerouslySetInnerHTML={{ __html: md.render(demo.description.trim().replace(/^ {6}/gm, '')) }}/>
-          <Demo code={demo.code}/>
+          <Demo code={demo.code} num={num}/>
         </Main>
         :
         <Home>

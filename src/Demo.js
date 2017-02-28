@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import calcOrder from './calcOrder'
+import calcOrder, { translate } from './calcOrder'
 import AceEditor from 'react-ace'
 import 'brace/mode/html'
 import 'brace/theme/chrome'
@@ -96,17 +96,9 @@ const Ace = styled(AceEditor).attrs({
   min-width: 14rem;
 `
 
-const Link = styled.span`
+const Link = styled.a`
   ${link}
-  padding: 0.5rem;
 `
-const Reset = Link.extend.attrs({
-  //onClick: props => e => navigate({code: null})
-})``
-const ShowCSS = Link.extend.attrs({
-  onClick: props => e => {
-  }
-})``
 
 const addHash = order => {
   const collisions = new Map()
@@ -119,6 +111,12 @@ const addHash = order => {
   console.log({order, res})
   return res
 }
+
+const report = (num) => `https://github.com/frontendcenter/z-index.exposed/issues/new?title=${
+  encodeURIComponent(`[BUG—ORDERING] Example ${num}`)
+}&body=${
+  encodeURIComponent(`Current code:\n\n\`\`\`html\n${store.demo.code}\n\`\`\`\n\nCalculated order: \`${translate(store.demo.order).join(' · ') }\``)
+}`
 
 class Demo extends React.Component {
   constructor(props) {
@@ -167,6 +165,9 @@ class Demo extends React.Component {
             </Square>
           )) }
         </FlipMove>
+        <span>Something not look
+          right? <Link href={report(this.props.num)} target="_blank">Open an issue</Link>.
+        </span>
       </Order>
     </Outer>
   }

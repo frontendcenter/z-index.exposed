@@ -33,9 +33,9 @@ Array [
 exports[`Handles demo 4: z-index overrides source order 1`] = `
 Array [
   "div.Box",
-  "div.Blue.rel.z0",
+  "!div.Blue.rel.z0",
   "'Blue'",
-  "div.Red.rel.z1",
+  "!div.Red.rel.z1",
   "'Red'",
 ]
 `;
@@ -43,7 +43,7 @@ Array [
 exports[`Handles demo 5: Default z-index (auto) is treated as 0 for ordering 1`] = `
 Array [
   "div.Box",
-  "div.Red.rel.z0",
+  "!div.Red.rel.z0",
   "'Red'",
   "div.Blue.rel",
   "'Blue'",
@@ -52,7 +52,7 @@ Array [
 
 exports[`Handles demo 6: Negative z-indices are drawn first of all 1`] = `
 Array [
-  "div.Blue.rel.z-1",
+  "!div.Blue.rel.z-1",
   "'Blue'",
   "div.Box",
   "div.Red",
@@ -62,8 +62,8 @@ Array [
 
 exports[`Handles demo 7: Introducing a stacking context 1`] = `
 Array [
-  "div.Box.rel.z0",
-  "div.Blue.rel.z-1",
+  "!div.Box.rel.z0",
+  "!div.Blue.rel.z-1",
   "'Blue'",
   "div.Red",
   "'Red'",

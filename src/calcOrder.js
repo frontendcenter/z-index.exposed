@@ -75,7 +75,7 @@ class Context {
     if (zIndex === "auto" || zIndex == "0") {
       this.positioneds.auto.push(p)
     } else {
-      const z = parseInt(zIndex,10)
+      const z = parseInt(zIndex, 10)
       if (z < 0) {
         this.positioneds.negative[z] = [...(this.positioneds.negative[z] || []), p]
       } else if (z > 0) {
@@ -111,6 +111,7 @@ const calcOrder = (el, context) => {
   if (position !== "static") {
     const zIndex = style.zIndex || "auto"
     const sc = (zIndex !== "auto")
+    me.sc = sc
     sub = new Context(sc)
     sc ? sub.addBase(me) : sub.addBlock(me)
     context.addPositioned(sub, zIndex)
@@ -127,3 +128,12 @@ export default (el) => {
   /* Drop the first element (the frame SC) */
   return root.flatten().slice(1)
 }
+
+/* Used for testing & bug submissions */
+export const translate = arr => arr.map(({ text, el, sc }) => (
+  text ? `'${text.trim()}'` : [
+      sc ? '!' : '',
+      el.tagName.toLowerCase(),
+      ['', ...Array.from(el.classList)].join('.')
+    ].join('')
+))
