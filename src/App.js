@@ -252,6 +252,8 @@ export default observer(() => {
         @glenmaddern
       </A> for <A href="https://frontend.center" target="_blank">
         frontend.center
+      </A>. View on <A href="https://github.com/frontendcenter/z-index.exposed" target="_blank">
+        GitHub
       </A>.
       </Credits>
     </Frame>

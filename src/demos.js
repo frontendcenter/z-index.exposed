@@ -74,7 +74,7 @@ export default [
     description: `
       Here we can see that \`z-index: 0\` (class \`z0\`) doesn't bring it in front of a positioned element with \`z-index: auto\` (no \`z*\` class set).
       
-      \`0\` and \`auto\` _are_ different in important ways though—not for the order in which _they're_ drawn, but the behaviour of their _descendants_.
+      \`0\` and \`auto\` _are_ different in important ways though—not for the order in which _they're_ drawn, but the behaviour of their _descendants_. To see how, we need to consider how the browser handles z-index values below 0.
     `,
     code: `
       <div class="Box">
@@ -121,21 +121,6 @@ export default [
         </div>
         <div class="Blue rel z-1">
           Blue
-        </div>
-      </div>
-    `,
-  },
-  {
-    title: "Nested, no positioning. Text after bg.",
-    description: `
-    `,
-    code: `
-      <div class="Box">
-        <div class="Red">
-          Red
-          <div class="Blue">
-            Blue
-          </div>
         </div>
       </div>
     `,
