@@ -92,7 +92,7 @@ export default [
     description: `
       Here you can see the Blue div is now behind the striped background of the Box. They're drawn in increasing order just like positive ones, except they're drawn before any of the other elements.
        
-       Try adding \`rel z-2\` to the Red div. Note, you'll need both: \`z-2\` won't have any effect if the element isn't positioned \`relative\` \`absolute\` or \`fixed\` (classnames \`rel\` \`abs\` or \`fixed\`).
+       Try adding \`rel z-2\` to the Red div. Note, you'll need both: \`z-2\` won't have any effect if the element isn't positioned (classnames \`rel\` \`abs\` or \`fixed\`).
     `,
     code: `
       <div class="Box">
@@ -110,7 +110,9 @@ export default [
     description: `
       The \`z-index\` property isn't global—it only has an effect within a _Stacking Context_. Lots of things create stacking contexts—in this case \`position: relative\` and \`z-index: 0\` on the Box means that Blue's \`z-index: -1\` doesn't push it behind the Box's striped background.
       
-      Delete \`z0\` from the Box 
+      Delete \`z0\` from the Box the Blue box will jump behind again—positioned elements with  \`z-index: auto\` _don't_ create stacking contexts but those with any other \`z-index\` value do.
+      
+      Note: the elements that create stacking contexts have black outlines in the rendering order below.
     `,
     code: `
       <div class="Box rel z0">
@@ -123,9 +125,6 @@ export default [
       </div>
     `,
   },
-]
-
-const todo = [
   {
     title: "Nested, no positioning. Text after bg.",
     description: `
@@ -141,6 +140,9 @@ const todo = [
       </div>
     `,
   },
+]
+
+const todo = [
   {
     title: "Nesting a z-1 still draws behind border",
     description: `

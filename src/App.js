@@ -145,6 +145,7 @@ const Home = styled.main`
     z-index: 0;
     top: 30vh;
     left: calc(50vw - 40vh);
+    pointer-events: none;
   }
 `
 
@@ -155,6 +156,7 @@ const Images = styled.div`
   width: 100%;
   max-width: 720px;
   overflow: hidden;
+  pointer-events: none;
 `
 
 const Polaroid = styled.div`

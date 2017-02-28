@@ -61,7 +61,7 @@ const Square = styled.li`
   border: ${props => props.border};
   display: flex;
   align-items: center;
-  box-shadow: 0 0 4px 1px #eee;
+  box-shadow: ${props => props.sc ? '0 0 0 2px white, 0 0 0 3px black' : '0 0 4px 1px #eee' };
   font-size: 0.75rem;
   padding: 0.25rem;
 `
@@ -87,7 +87,8 @@ const Ace = styled(AceEditor).attrs({
   editorProps: {
     $blockScrolling: true,
     blockScrolling: true,
-    autoScrollEditorIntoView: false
+    autoScrollEditorIntoView: false,
+    setScrollSpeed: 0
   }
 })`
   border: 1px solid #ccc;

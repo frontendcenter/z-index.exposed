@@ -69,3 +69,13 @@ Array [
   "'Red'",
 ]
 `;
+
+exports[`Handles demo 8: Nested, no positioning. Text after bg. 1`] = `
+Array [
+  "div.Box",
+  "div.Red",
+  "div.Blue",
+  "'Red'",
+  "'Blue'",
+]
+`;
