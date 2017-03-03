@@ -70,12 +70,14 @@ Array [
 ]
 `;
 
-exports[`Handles demo 8: Nested, no positioning. Text after bg. 1`] = `
+exports[`Handles demo 8: Try your own. 1`] = `
 Array [
-  "div.Box",
-  "div.Red",
-  "div.Blue",
-  "'Red'",
+  "!div.Box.rel.z0",
+  "!div.Blue.rel.z-1",
   "'Blue'",
+  "div.Red",
+  "'Red'",
+  "!div.Green.abs.z4",
+  "'Green'",
 ]
 `;

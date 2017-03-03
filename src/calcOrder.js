@@ -99,6 +99,7 @@ const calcOrder = (el, context) => {
   }
 
   const style = getComputedStyle(el)
+  if (style.display === "none") return
 
   const me = {
     background: style.background,
