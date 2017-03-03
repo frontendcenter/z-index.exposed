@@ -146,7 +146,9 @@ class Demo extends React.Component {
   render() {
     return <Outer>
       <Code>
-        <Ace value={store.demo.code} onChange={this.changeCode}/>
+        <Ace name={`ace-editor-${this.props.num})`}
+             value={store.demo.code}
+             onChange={this.changeCode}/>
         {/*<Reset>Reset</Reset> · <ShowCSS>Show CSS</ShowCSS>*/}
       </Code>
       <Box>

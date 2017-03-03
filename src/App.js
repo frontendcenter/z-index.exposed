@@ -48,6 +48,11 @@ const Desc = styled.div`
     background: #eee;
     padding: 0.1em 0.333em;
   }
+  pre {
+    background: #eee;
+    margin: 1em;
+    padding: 0.5em;
+  }
 `
 const A = styled.a`
   &, ${Desc} a {
@@ -155,7 +160,6 @@ const Images = styled.div`
   position: relative;
   width: 100%;
   max-width: 720px;
-  overflow: hidden;
   pointer-events: none;
 `
 

@@ -125,6 +125,47 @@ export default [
       </div>
     `,
   },
+  {
+    title: "Try your own.",
+    description: `
+      Understanding the way z-index values and stacking contexts get created requires interaction, so play around with some markup (or paste your own). Add your own CSS in a \`style\` tag and raise an issue if the Ordering calculator doesn't match the rendered output!
+      
+      These are the classes already defined for you to use:
+      
+          .right { text-align: right; }
+          .rel { position: relative; }
+          .abs { position: absolute; }
+          .fixed { position: fixed; }
+          
+          .z0 { z-index: 0; }
+          .z1 { z-index: 1; }
+          .z2 { z-index: 2; }
+          .z3 { z-index: 3; }
+          .z4 { z-index: 4; }
+          .z-1 { z-index: -1; }
+          .z-2 { z-index: -2; }
+          .z-3 { z-index: -3; }
+          .z-4 { z-index: -4; }
+      
+      Good luck!
+    `,
+    code: `
+      <style>
+        .Box * { box-shadow: 0 0 4px -2px black; }
+      </style>
+      <div class="Box rel z0">
+        <div class="Red">
+          Red
+        </div>
+        <div class="Blue rel z-1">
+          Blue
+        </div>
+        <div class="Green abs z4">
+          Green
+        </div>
+      </div>
+    `,
+  },
 ]
 
 const todo = [
