@@ -38,16 +38,34 @@ const Order = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.5rem;
-  
+  padding: 1rem;
   > ol {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    padding: 0.5rem 0.5rem;
-    margin: 1rem;
+    margin: 1rem 0;
     background: white;
     border: 1px solid #ccc;
+    width: 100%;
+    @media (max-width: 543px) {
+      flex-wrap: wrap-reverse;
+      * { margin-top: 0; }
+      * + * { margin-bottom: 0.5rem; }
+    }
+    .wayfinder {
+      background: #f7f7f7;
+      align-self: center;
+      line-height: 2rem;
+      font-size: 10px;
+      color: #999;
+      flex: 1;
+      padding: 1rem 0;
+      border: 1px solid #f7f7f7;
+      height: 4rem;
+      @media (min-width: 544px) {
+        &:first-child { margin-right: 0.5rem; }
+        &:last-child { margin-left: 0.5rem; }
+      }
+    }
   }
   width: 100%;
   text-align: center;
@@ -56,7 +74,6 @@ const Order = styled.div`
 const Square = styled.li`
   width: 3rem;
   height: 3rem;
-  margin: 1rem 1rem;
   background: ${props => props.background};
   border: ${props => props.border};
   display: flex;
@@ -64,6 +81,10 @@ const Square = styled.li`
   box-shadow: ${props => props.sc ? '0 0 0 2px white, 0 0 0 3px black' : '0 0 4px 1px #eee' };
   font-size: 0.75rem;
   padding: 0.25rem;
+  margin: 0.5rem;
+  @media (max-width: 543px) {
+    width: 100%;
+  }
 `
 
 const Label = styled.span`
@@ -162,11 +183,13 @@ class Demo extends React.Component {
                   staggerDelayBy={100}
                   duration={300}
                   leaveAnimation="none">
+          <span className="wayfinder">1st paint</span>
           { store.demo.order.map((e, i) => (
             <Square key={e.key} {...e}>
               {e.text && <Label>{e.text}</Label>}
             </Square>
           )) }
+          <span className="wayfinder">Last paint</span>
         </FlipMove>
         <span>Something not look
           right? <Link href={report(this.props.num)} target="_blank">Open an issue</Link>.
